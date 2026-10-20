@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<title>Free Video Clip Maker: Cut Short Clips from Long Videos | Estegy</title>
+<meta name="description" content="Cut vertical 9:16 clips from your own long videos — free, right in your browser. Perfect for YouTube Shorts, Instagram Reels & TikTok. No signup, 100% private, open source.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://estegysol.com/tools/video-clip-maker/">
+<meta property="og:title" content="Free Video Clip Maker — Cut Shorts from Long Videos">
+<meta property="og:description" content="Turn your long videos into vertical 9:16 clips for Shorts, Reels & TikTok. Free, no signup, runs 100% in your browser. Open source.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://estegysol.com/tools/video-clip-maker/">
+<meta property="og:image" content="https://estegysol.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Video Clip Maker — Cut Shorts from Long Videos">
+<meta name="twitter:description" content="Turn your long videos into vertical 9:16 clips for Shorts, Reels & TikTok. Free, no signup, runs 100% in your browser. Open source.">
+<meta name="twitter:image" content="https://estegysol.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Free Video Clip Maker",
+  "url": "https://estegysol.com/tools/video-clip-maker/",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Cut short vertical clips from your long videos free in the browser. Export 9:16 MP4 clips ready for YouTube Shorts, Instagram Reels and TikTok."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the Video Clip Maker really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — completely free, no signup, no watermark. The tool is also open source (MIT license) on GitHub, so anyone can inspect, use or improve the code."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my video uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Your video never leaves your device. All cutting and conversion happens inside your browser using FFmpeg.wasm, so your footage stays 100% private."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What output formats does it make?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two options: vertical 9:16 MP4 (1080x1920) ready for YouTube Shorts, Instagram Reels and TikTok, or the original aspect ratio MP4. Both use H.264 video and AAC audio for maximum compatibility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the video engine take time to load?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On first use the tool downloads the FFmpeg video engine (about 30 MB) from a CDN. After that it is cached by your browser and loads instantly on later visits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use it on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It works best on a desktop or laptop browser (Chrome or Edge recommended) because video encoding needs CPU power and memory. Large videos on phones may be slow or run out of memory."
+      }
+    }
+  ]
+}
+</script>
+<style>:root{--brand:#0b7a55;--brand-dark:#095c41;--ink:#1c2733;--muted:#5d6f80;--bg:#f5f8f7;--card:#ffffff;--line:#dfe8e4;--radius:12px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.site-header{background:#0f1a16;color:#fff}
+.head-in{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:960px;margin:0 auto}
+.brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.05rem}
+.brand span{font-weight:400;opacity:.75}
+.site-header nav a{color:#fff;text-decoration:none;margin-left:20px;font-size:.92rem;opacity:.85}
+.site-header nav a:hover{opacity:1;text-decoration:underline}
+.hero{padding:34px 0 6px}
+.hero h1{font-size:2.1rem;line-height:1.25;margin:0 0 10px}
+.hero p{color:var(--muted);font-size:1.05rem;max-width:660px;margin:0}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin:22px 0;box-shadow:0 2px 10px rgba(16,40,32,.04)}
+h2{font-size:1.35rem;margin:32px 0 10px}
+label{display:block;font-weight:600;margin:14px 0 6px}
+textarea,input[type=text],input[type=url],input[type=number],select{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff;color:var(--ink)}
+input[type=range]{width:100%;accent-color:var(--brand)}
+.btn{display:inline-block;background:var(--brand);color:#fff;border:0;border-radius:8px;padding:11px 20px;font:inherit;font-weight:700;cursor:pointer;margin:8px 10px 8px 0;text-decoration:none}
+.btn:hover{background:var(--brand-dark)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn-ghost{background:#e9f1ed;color:var(--ink)}
+.btn-ghost:hover{background:#dde9e3}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.row>div{flex:1;min-width:170px}
+.checks{margin:6px 0}
+.checks label{display:inline-flex;align-items:center;gap:8px;font-weight:400;margin:6px 18px 6px 0;cursor:pointer}
+.checks input{width:auto}
+.err{background:#fdecea;color:#a4262c;border:1px solid #f5c6c7;border-radius:8px;padding:12px 14px;margin-top:14px;display:none}
+.okmsg{background:#e6f6ee;color:#0b7a55;border:1px solid #bfe6d2;border-radius:8px;padding:12px 14px;margin-top:14px;display:none}
+.steps{padding-left:22px}
+.steps li{margin:8px 0}
+.faq{border-top:1px solid var(--line);padding:14px 0}
+.faq h3{font-size:1.02rem;margin:0 0 6px}
+.faq p{margin:0;color:#33424f}
+.site-footer{border-top:1px solid var(--line);margin-top:44px;padding:26px 0 34px;color:var(--muted);font-size:.9rem;text-align:center}
+.site-footer a{color:var(--brand)}
+.tiny{font-size:.82rem;color:var(--muted)}
+@media(max-width:640px){.hero h1{font-size:1.6rem}.tool-card{padding:18px}.head-in{flex-direction:column;gap:10px;align-items:flex-start}.site-header nav a{margin-left:0;margin-right:18px}}</style>
+<style>
+#dropzone{border:2px dashed var(--line);border-radius:var(--radius);padding:34px 20px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;background:#fbfdfc}
+#dropzone:hover,#dropzone.dragover{border-color:var(--brand);background:#eef5f2}
+#dropzone .dz-title{font-weight:800;font-size:1.1rem;margin-bottom:6px}
+#dropzone .dz-sub{color:var(--muted);font-size:.9rem}
+#vcm-video{width:100%;max-height:420px;background:#000;border-radius:8px;margin-top:14px}
+.time-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+.time-chip{background:#eef5f2;border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700}
+.clip-item{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#f2f7f5;border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:8px 0}
+.clip-item .cname{font-weight:700}
+.clip-item .ctime{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem;color:var(--muted)}
+.clip-item .cdel{background:none;border:0;color:#a4262c;font-weight:700;cursor:pointer;font-size:1.05rem;padding:4px 8px}
+.dl-item{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#e6f6ee;border:1px solid #bfe6d2;border-radius:8px;padding:10px 14px;margin:8px 0}
+.dl-item a{font-weight:700;color:var(--brand)}
+.progress{height:10px;background:#e7eeeb;border-radius:6px;overflow:hidden;margin-top:8px}
+.progress>div{height:100%;width:0;background:var(--brand);transition:width .25s}
+.badge{display:inline-block;background:#0b7a55;color:#fff;font-size:.75rem;font-weight:700;border-radius:999px;padding:3px 10px;margin-left:8px;vertical-align:middle}
+</style>
+<script type="importmap">
+{"imports":{
+"@ffmpeg/ffmpeg":"https://unpkg.com/@ffmpeg/ffmpeg@0.12.15/dist/esm/index.js",
+"@ffmpeg/util":"https://unpkg.com/@ffmpeg/util@0.12.2/dist/esm/index.js"
+}}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5097477595853495"
+     crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://estegysol.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://estegysol.com/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Video Clip Maker", "item": "https://estegysol.com/tools/video-clip-maker/"}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="head-in">
+<a class="brand" href="https://estegysol.com/tools/">Estegy Solutions <span>&mdash; Free Tools</span></a>
+<nav><a href="https://estegysol.com/tools/">All Tools</a><a href="https://estegysol.com/">estegysol.com</a></nav>
+</div></header>
+<main><div class="wrap">
+<section class="hero">
+<h1>Free Video Clip Maker <span class="badge">OPEN SOURCE</span></h1>
+<p>Cut short vertical clips from your own long videos — right in your browser. Export 9:16 MP4s ready for YouTube Shorts, Instagram Reels and TikTok. Free forever, no signup, no watermark. Your video never leaves your device.</p>
+</section>
+<section class="tool-card" aria-label="Free Video Clip Maker">
+
+<h2 style="margin-top:0">1. Load your video</h2>
+<div id="dropzone" role="button" tabindex="0" aria-label="Choose a video file">
+<div class="dz-title">Drop your video here or click to choose</div>
+<div class="dz-sub">MP4, WebM or MOV — your file never leaves this browser</div>
+</div>
+<input type="file" id="vcm-file" accept="video/*" style="display:none">
+<video id="vcm-video" controls playsinline style="display:none"></video>
+<p class="tiny" id="vcm-fileinfo" style="display:none"></p>
+
+<div id="vcm-editor" style="display:none">
+<h2>2. Mark your clips</h2>
+<div class="time-row">
+<span class="time-chip" id="vcm-cur">0:00.0</span>
+<button class="btn btn-ghost" id="vcm-setstart" type="button">Set start ⏮</button>
+<button class="btn btn-ghost" id="vcm-setend" type="button">Set end ⏭</button>
+</div>
+<div class="row">
+<div><label for="vcm-start">Clip start (seconds)</label><input type="number" id="vcm-start" min="0" step="0.1" value="0"></div>
+<div><label for="vcm-end">Clip end (seconds)</label><input type="number" id="vcm-end" min="0" step="0.1" value="10"></div>
+</div>
+<div><button class="btn" id="vcm-add" type="button">+ Add clip</button></div>
+<div id="vcm-clips" aria-live="polite"></div>
+
+<h2>3. Output settings</h2>
+<div class="row">
+<div>
+<label for="vcm-format">Output format</label>
+<select id="vcm-format">
+<option value="vertical" selected>Vertical 9:16 — Shorts / Reels / TikTok (1080×1920)</option>
+<option value="original">Original aspect ratio</option>
+</select>
+</div>
+<div id="vcm-cropwrap">
+<label for="vcm-croppos">Crop position <span class="tiny">(where the vertical window sits)</span></label>
+<input type="range" id="vcm-croppos" min="0" max="100" value="50">
+<p class="tiny" style="margin:4px 0 0">Left &larr; <span id="vcm-croppos-label">Center</span> &rarr; Right</p>
+</div>
+</div>
+
+<h2>4. Create clips</h2>
+<p class="tiny">First click loads the video engine (about 30&nbsp;MB, one-time download — then it is cached).</p>
+<div>
+<button class="btn btn-ghost" id="vcm-load" type="button">Load video engine</button>
+<button class="btn" id="vcm-make" type="button" disabled>Create clips</button>
+</div>
+<div class="okmsg" id="vcm-status" role="status"></div>
+<div class="progress" id="vcm-progress" style="display:none"><div id="vcm-progressbar"></div></div>
+<div id="vcm-downloads" aria-live="polite"></div>
+</div>
+
+<div class="err" id="vcm-err" role="alert"></div>
+</section>
+
+<section aria-label="How to use">
+<h2>How to use</h2>
+<ol class="steps">
+<li>Drop your long video into the box above (MP4, WebM or MOV). It opens in the preview player — nothing is uploaded.</li>
+<li>Play the video and press <strong>Set start</strong> / <strong>Set end</strong> at the moments you want, then <strong>Add clip</strong>. Repeat for as many clips as you need.</li>
+<li>Choose <strong>Vertical 9:16</strong> for Shorts/Reels/TikTok (with crop position), or keep the original ratio.</li>
+<li>Click <strong>Load video engine</strong> once, then <strong>Create clips</strong> — download each MP4 when it is ready.</li>
+</ol>
+</section>
+<section aria-label="Frequently asked questions">
+<h2>Frequently asked questions</h2>
+<div class="faq"><h3>Is the Video Clip Maker really free?</h3><p>Yes — completely free, no signup, no watermark. The tool is also open source under the MIT license on GitHub, so anyone can inspect, use or improve the code.</p></div>
+<div class="faq"><h3>Is my video uploaded anywhere?</h3><p>No. Your video never leaves your device. All cutting and conversion happens inside your browser using FFmpeg.wasm, so your footage stays 100% private.</p></div>
+<div class="faq"><h3>What output formats does it make?</h3><p>Two options: vertical 9:16 MP4 (1080&times;1920) ready for YouTube Shorts, Instagram Reels and TikTok, or the original aspect ratio MP4. Both use H.264 video and AAC audio for maximum compatibility.</p></div>
+<div class="faq"><h3>Why does the video engine take time to load?</h3><p>On first use the tool downloads the FFmpeg video engine (about 30&nbsp;MB) from a CDN. After that it is cached by your browser and loads instantly on later visits.</p></div>
+<div class="faq"><h3>Can I use it on my phone?</h3><p>It works best on a desktop or laptop browser (Chrome or Edge recommended) because video encoding needs CPU power and memory. Large videos on phones may be slow or run out of memory.</p></div>
+</section>
+<p class="tiny" style="margin-top:26px">&larr; Back to <a href="https://estegysol.com/tools/">all free tools</a> &middot; Source code: <a href="https://github.com/estegysolutions/video-clip-maker" target="_blank" rel="noopener">GitHub</a> (MIT License)</p>
+
+<section aria-label="Related tools">
+<h2>Related free tools</h2>
+<ul>
+<li><a href="https://estegysol.com/tools/social-media-image-sizes/">Social Media Image Sizes</a></li>
+<li><a href="https://estegysol.com/tools/ai-prompt-generator/">AI Prompt Generator</a></li>
+<li><a href="https://estegysol.com/tools/image-compressor/">Image Compressor</a></li>
+</ul>
+</section>
+</div></main>
+<footer class="site-footer"><div class="wrap">
+<p class="tiny" style="text-align:center;margin-top:14px"><a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/terms/">Terms of Service</a> &middot; <a href="/about/">About</a> &middot; <a href="/contact/">Contact</a></p>
+<p>Free online tools by <a href="https://estegysol.com/">Estegy Solutions</a> &mdash; digital marketing, web development &amp; SEO.</p>
+<p class="tiny">Every tool on this page runs 100% in your browser. Your data never leaves your device.</p>
+</div></footer>
+<script type="module">
+import { FFmpeg } from '@ffmpeg/ffmpeg';
+import { fetchFile, toBlobURL } from '@ffmpeg/util';
+
+const $ = id => document.getElementById(id);
+const dropzone=$('dropzone'), fileInput=$('vcm-file'), video=$('vcm-video'),
+  fileinfo=$('vcm-fileinfo'), editor=$('vcm-editor'), curChip=$('vcm-cur'),
+  startEl=$('vcm-start'), endEl=$('vcm-end'), clipsEl=$('vcm-clips'),
+  formatEl=$('vcm-format'), cropWrap=$('vcm-cropwrap'), cropPos=$('vcm-croppos'),
+  cropPosLabel=$('vcm-croppos-label'), loadBtn=$('vcm-load'), makeBtn=$('vcm-make'),
+  statusEl=$('vcm-status'), errEl=$('vcm-err'), progWrap=$('vcm-progress'),
+  progBar=$('vcm-progressbar'), dlEl=$('vcm-downloads');
+
+let srcFile=null, srcName='video', clips=[], ffmpeg=null, engineReady=false, making=false;
+
+function showErr(m){errEl.textContent=m;errEl.style.display='block';}
+function hideErr(){errEl.style.display='none';errEl.textContent='';}
+function showStatus(m){statusEl.textContent=m;statusEl.style.display='block';}
+function fmtT(s){s=Math.max(0,s);const m=Math.floor(s/60),sec=(s%60);
+  return m+':'+(sec<10?'0':'')+sec.toFixed(1);}
+function setProgress(p){progWrap.style.display='block';progBar.style.width=Math.min(100,Math.max(0,p))+'%';}
+
+/* ---------- file loading ---------- */
+function loadFile(f){
+  hideErr();
+  if(!f||!f.type.startsWith('video/')){showErr('Please choose a video file (MP4, WebM or MOV).');return;}
+  if(f.size>1024*1024*1024){showErr('This file is over 1 GB — your browser may run out of memory. Try a smaller file.');return;}
+  if(video.src) URL.revokeObjectURL(video.src);
+  srcFile=f; srcName=f.name.replace(/\.[^.]+$/,'')||'video';
+  video.src=URL.createObjectURL(f);
+  video.style.display='block';
+  fileinfo.style.display='block';
+  fileinfo.textContent='Loaded: '+f.name+' ('+(f.size/1048576).toFixed(1)+' MB)';
+  editor.style.display='block';
+  clips=[]; renderClips(); dlEl.innerHTML='';
+  video.onloadedmetadata=function(){
+    endEl.value=Math.min(10,video.duration).toFixed(1);
+    startEl.max=video.duration; endEl.max=video.duration;
+  };
+  dropzone.querySelector('.dz-title').textContent='Video loaded — click to choose a different one';
+}
+dropzone.addEventListener('click',()=>fileInput.click());
+dropzone.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fileInput.click();}});
+['dragover','dragenter'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.add('dragover');}));
+['dragleave','drop'].forEach(ev=>dropzone.addEventListener(ev,e=>{e.preventDefault();dropzone.classList.remove('dragover');}));
+dropzone.addEventListener('drop',e=>{const f=e.dataTransfer.files[0]; if(f) loadFile(f);});
+fileInput.addEventListener('change',()=>{const f=fileInput.files[0]; if(f) loadFile(f);});
+video.addEventListener('timeupdate',()=>{curChip.textContent=fmtT(video.currentTime);});
+
+/* ---------- clips ---------- */
+$('vcm-setstart').addEventListener('click',()=>{startEl.value=video.currentTime.toFixed(1);});
+$('vcm-setend').addEventListener('click',()=>{endEl.value=video.currentTime.toFixed(1);});
+cropPos.addEventListener('input',()=>{
+  const v=+cropPos.value;
+  cropPosLabel.textContent=v<34?'Left':(v>66?'Right':'Center');
+});
+formatEl.addEventListener('change',()=>{
+  cropWrap.style.display=formatEl.value==='vertical'?'block':'none';
+});
+function renderClips(){
+  clipsEl.innerHTML='';
+  if(!clips.length){clipsEl.innerHTML='<p class="tiny">No clips yet — mark start/end above and press “Add clip”.</p>';return;}
+  clips.forEach((c,i)=>{
+    const d=document.createElement('div'); d.className='clip-item';
+    d.innerHTML='<div><div class="cname">Clip '+(i+1)+'</div><div class="ctime">'+fmtT(c.start)+' → '+fmtT(c.end)+' ('+(c.end-c.start).toFixed(1)+'s)</div></div>';
+    const b=document.createElement('button'); b.className='cdel'; b.type='button';
+    b.textContent='✕'; b.setAttribute('aria-label','Delete clip '+(i+1));
+    b.addEventListener('click',()=>{clips.splice(i,1);renderClips();});
+    d.appendChild(b); clipsEl.appendChild(d);
+  });
+}
+$('vcm-add').addEventListener('click',()=>{
+  hideErr();
+  const s=parseFloat(startEl.value), e=parseFloat(endEl.value);
+  if(!(s>=0)||!(e>0)){showErr('Enter valid start and end times.');return;}
+  if(e<=s){showErr('End time must be after start time.');return;}
+  if(video.duration&&e>video.duration+0.05){showErr('End time is beyond the video length ('+fmtT(video.duration)+').');return;}
+  if(e-s>600){showErr('Clips are limited to 10 minutes each.');return;}
+  clips.push({start:s,end:e}); renderClips();
+  showStatus('Clip '+(clips.length)+' added: '+fmtT(s)+' → '+fmtT(e));
+});
+
+/* ---------- ffmpeg engine ---------- */
+loadBtn.addEventListener('click', async ()=>{
+  hideErr(); loadBtn.disabled=true;
+  showStatus('Loading video engine (~30 MB, one-time)…');
+  setProgress(4);
+  try{
+    ffmpeg=new FFmpeg();
+    ffmpeg.on('log',()=>{});
+    const base='https://unpkg.com/@ffmpeg/core@0.12.10/dist/esm';
+    await ffmpeg.load({
+      coreURL:await toBlobURL(base+'/ffmpeg-core.js','text/javascript'),
+      wasmURL:await toBlobURL(base+'/ffmpeg-core.wasm','application/wasm')
+    });
+    engineReady=true; setProgress(100);
+    showStatus('Video engine ready. You can now create clips.');
+    makeBtn.disabled=false; loadBtn.textContent='Engine loaded ✓';
+  }catch(err){
+    showErr('Could not load the video engine. Check your internet connection and reload the page. ('+(err&&err.message||err)+')');
+    loadBtn.disabled=false; setProgress(0); progWrap.style.display='none';
+  }
+});
+
+/* ---------- clip creation ---------- */
+function filterFor(){
+  if(formatEl.value!=='vertical') return null;
+  const pos=(+cropPos.value/100).toFixed(2);
+  // crop a centered 9:16 window (works for landscape & portrait inputs), then scale to 1080x1920
+  return "crop=min(iw\\,ih*9/16):min(ih\\,iw*16/9):(iw-ow)*"+pos+":(ih-oh)/2,scale=1080:1920";
+}
+makeBtn.addEventListener('click', async ()=>{
+  hideErr();
+  if(making) return;
+  if(!srcFile){showErr('Load a video first.');return;}
+  if(!clips.length){showErr('Add at least one clip first.');return;}
+  if(!engineReady){showErr('Click “Load video engine” first.');return;}
+  making=true; makeBtn.disabled=true; dlEl.innerHTML='';
+  const vf=filterFor();
+  try{
+    showStatus('Preparing video…'); setProgress(2);
+    await ffmpeg.writeFile('input.dat', await fetchFile(srcFile));
+    for(let i=0;i<clips.length;i++){
+      const c=clips[i], dur=c.end-c.start;
+      const out='clip'+(i+1)+'.mp4';
+      showStatus('Creating clip '+(i+1)+' of '+clips.length+'…');
+      setProgress(5+95*(i/clips.length));
+      // fast seek near the point, then accurate seek — keeps long videos usable
+      const pre=Math.max(0,c.start-2), fine=(c.start-pre).toFixed(3);
+      const args=['-ss',pre.toFixed(3),'-i','input.dat','-ss',fine,'-t',dur.toFixed(3)];
+      if(vf) args.push('-vf',vf);
+      args.push('-c:v','libx264','-preset','ultrafast','-crf','23',
+                '-c:a','aac','-b:a','128k','-movflags','+faststart','-y',out);
+      const code=await ffmpeg.exec(args);
+      if(code!==0) throw new Error('encoding failed for clip '+(i+1));
+      const data=await ffmpeg.readFile(out);
+      const url=URL.createObjectURL(new Blob([data.buffer],{type:'video/mp4'}));
+      const row=document.createElement('div'); row.className='dl-item';
+      const label=document.createElement('span');
+      label.innerHTML='<strong>Clip '+(i+1)+'</strong> <span class="tiny">'+fmtT(c.start)+' → '+fmtT(c.end)+' · '+(formatEl.value==='vertical'?'9:16':'original')+'</span>';
+      const a=document.createElement('a');
+      a.href=url; a.download=srcName+'-clip'+(i+1)+'.mp4'; a.textContent='⬇ Download MP4';
+      row.appendChild(label); row.appendChild(a); dlEl.appendChild(row);
+      await ffmpeg.deleteFile(out);
+      setProgress(5+95*((i+1)/clips.length));
+    }
+    await ffmpeg.deleteFile('input.dat');
+    showStatus('Done — '+clips.length+' clip'+(clips.length>1?'s':'')+' ready below. 🎉');
+  }catch(err){
+    showErr('Something went wrong while creating clips: '+(err&&err.message||err)+'. Try a smaller video or reload the page.');
+  }
+  making=false; makeBtn.disabled=false;
+});
+</script>
+</body>
+</html>
